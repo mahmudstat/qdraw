@@ -16,6 +16,7 @@ If you're using version control, you will want to check in this directory.
 - Add your contents to `qmd` file and render.
 - Click on the draw icon <i class="fas fa-pen-nib"></i> to activate the drawing tools. Click the icon again to hide the tools.
 - Use the self-explanatory tools as per your requirements.
+- Read more here about [using the icons](https://www.thinkermahmud.com/qdraw/index.html#/icons)
 
 ## Demo
 

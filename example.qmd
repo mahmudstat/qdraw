@@ -34,6 +34,31 @@ revealjs-plugins:
 - Click on the draw icon <i class="fas fa-pen-nib"></i> to activate the drawing tools. Click the icon again to hide the tools.
 - Use the self-explanatory tools as per your requirements.
 
+## Icons
+
+:::: {.columns}
+
+::: {.column width="50%"}
+- <i style="font-weight: bold; color: red;" class="fas fa-pen-nib"></i> Start/Stop Drawing
+- <i style="font-weight: bold;" class="fas fa-marker"></i> Choose to Draw (defaulted initially)
+- <i style="font-weight: bold;" class="fas fa-eye-dropper"></i> Change Pen Color
+- <i style="font-weight: bold; color: green;" class="fas fa-undo"></i> Undo Drawings
+:::
+
+::: {.column width="50%"}
+- <i style="font-weight: bold; color: red;" class="fas fa-eraser"></i> Erase Drawings
+- <i style="font-weight: bold; color: red;" class="fas fa-trash"></i> Delete All Drawings
+- <i style="font-weight: bold; color: green;"  class="fas fa-fill-drip"></i> Change Background
+- <i style="font-weight: bold; color: red;"  class="fas fa-fill-drip"></i> Reset Background
+- <i style="font-weight: bold; color: green;" class="fas fa-download"></i> Download Drawings
+:::
+
+::::
+
+
+
+
 ## Demo
 
 [Get a demo here](https://www.thinkermahmud.com/qdraw) and its source code [here](https://github.com/mahmudstat/qdraw/blob/main/example.qmd)
+
