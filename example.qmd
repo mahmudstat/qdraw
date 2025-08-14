@@ -1,0 +1,33 @@
+---
+title: "Qdraw Example"
+format:
+  revealjs: default
+revealjs-plugins:
+  - qdraw
+---
+
+# Installation
+
+``` bash
+quarto add mahmudstat/qdraw
+```
+
+and make sure you `yaml` looks like the following:
+
+``` yaml
+---
+title: "Qdraw Example"
+format:
+  revealjs: default
+revealjs-plugins:
+  - qdraw
+---
+```
+
+## Usage
+
+- Add your contents to `qmd` file and render.
+- Click on the draw icon <i class="fas fa-pen-nib"></i> to activate the drawing tools. Click the icon again to hide the tools.
+- Use the self-explanatory tools as per your requirements.
+
+## Demo
