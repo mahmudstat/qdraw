@@ -3,6 +3,7 @@ title: "Qdraw Example"
 format:
   revealjs:
     slide-number:  c/t
+    navigation-mode: vertical
     output-file: index.html
     footer: "Developed by [Abdullah Al Mahmud](https://www.thinkermahmud.com)"
 revealjs-plugins:

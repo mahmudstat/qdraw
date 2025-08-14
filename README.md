@@ -4,8 +4,6 @@ Allows drawing and erasing in a revealjs presentation rendered via quarto.
 
 ## Installing
 
-_TODO_: Replace the `<github-organization>` with your GitHub organization.
-
 ```bash
 quarto add mahmudstat/qdraw
 ```
@@ -21,5 +19,4 @@ If you're using version control, you will want to check in this directory.
 
 ## Demo
 
-
-
+[Get a demo here](https://www.thinkermahmud.com/qdraw) and its source code [here](https://github.com/mahmudstat/qdraw/blob/main/example.qmd)
