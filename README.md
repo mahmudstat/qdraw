@@ -8,6 +8,10 @@ Allows drawing and erasing in a revealjs presentation rendered via quarto.
 
 This tool is practically used in my statistics and probability lecture slides on Stat Mania. [See them in action](https://docs.statmania.info/lectures.html)
 
+## Video Demonstration
+
+![qdraw](qdraw-in-use.mp4)
+
 ## Installing
 
 ```bash

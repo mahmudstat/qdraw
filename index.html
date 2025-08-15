@@ -386,6 +386,7 @@
       margin-right: 0; 
     }
   </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -393,6 +394,7 @@
 
 <section id="title-slide" class="quarto-title-block center">
   <h1 class="title">Qdraw Example</h1>
+  <p class="subtitle">Click the drawing (top-left) icon to start experimenting</p>
 
 <div class="quarto-title-authors">
 </div>
@@ -441,15 +443,55 @@
 </ul>
 </div></div>
 </section></section>
+<section>
 <section id="demo" class="title-slide slide level1 center">
 <h1>Demo</h1>
 <p><a href="https://www.thinkermahmud.com/qdraw">Get a demo here</a> and its source code <a href="https://github.com/mahmudstat/qdraw/blob/main/example.qmd">here</a></p>
+</section>
+<section id="scatter-plot-with-chart.js" class="slide level2">
+<h2>Scatter Plot with Chart.js</h2>
+<p>(Not part of <code>qdraw</code> plugin)</p>
+<canvas id="myChart" style="width:100%;max-width:700px">
+</canvas>
+<script>
+var xyValues = [
+  {x:50, y:7},
+  {x:60, y:8},
+  {x:70, y:8},
+  {x:80, y:9},
+  {x:90, y:9},
+  {x:100, y:9},
+  {x:110, y:10},
+  {x:120, y:11},
+  {x:130, y:14},
+  {x:140, y:14},
+  {x:150, y:15}
+];
+
+new Chart(document.getElementById("myChart"), {
+  type: "scatter",
+  data: {
+    datasets: [{
+      pointRadius: 4,
+      pointBackgroundColor: "rgb(0,0,255)",
+      data: xyValues
+    }]
+  },
+  options: {
+    legend: {display: true},
+    scales: {
+      xAxes: [{ticks: {min: 40, max:160}}],
+      yAxes: [{ticks: {min: 6, max:16}}],
+    }
+  }
+});
+</script>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 <p>Developed by <a href="https://www.thinkermahmud.com">Abdullah Al Mahmud</a></p>
 </div>
 </div>
-</section>
+</section></section>
     </div>
   </div>
 
