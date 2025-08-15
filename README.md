@@ -10,7 +10,7 @@ This tool is practically used in my statistics and probability lecture slides on
 
 ## Video Demonstration
 
-Watch a video demo her](https://www.thinkermahmud.com/qdraw/index.html#/video-demo)
+[Watch a video demo her](https://www.thinkermahmud.com/qdraw/index.html#/video-demo)
 
 ## Installing
 
