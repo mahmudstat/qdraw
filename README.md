@@ -18,6 +18,8 @@ If you're using version control, you will want to check in this directory.
 - Use the self-explanatory tools as per your requirements.
 - Read more here about [using the icons](https://www.thinkermahmud.com/qdraw/index.html#/icons)
 
+![Icons](icons.png)
+
 ## Demo
 
 [Get a demo here](https://www.thinkermahmud.com/qdraw) and its source code [here](https://github.com/mahmudstat/qdraw/blob/main/example.qmd)

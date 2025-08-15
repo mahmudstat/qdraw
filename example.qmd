@@ -16,7 +16,7 @@ revealjs-plugins:
 quarto add mahmudstat/qdraw
 ```
 
-and make sure you `yaml` looks like the following:
+and add the plugin to your `yaml` in the the following way:
 
 ``` yaml
 ---
@@ -28,10 +28,11 @@ revealjs-plugins:
 ---
 ```
 
-## Using
+# Using
 
 - Add your contents to `qmd` file and render.
-- Click on the draw icon <i class="fas fa-pen-nib"></i> to activate the drawing tools. Click the icon again to hide the tools.
+- Click on the draw icon <i class="fas fa-pen-nib"></i> to activate the drawing tools.
+- Click the icon again to hide the tools and move on to the other slides.
 - Use the self-explanatory tools as per your requirements.
 
 ## Icons
@@ -58,7 +59,7 @@ revealjs-plugins:
 
 
 
-## Demo
+# Demo
 
 [Get a demo here](https://www.thinkermahmud.com/qdraw) and its source code [here](https://github.com/mahmudstat/qdraw/blob/main/example.qmd)
 
