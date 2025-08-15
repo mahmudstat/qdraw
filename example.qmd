@@ -1,5 +1,7 @@
 ---
 title: "Qdraw Example"
+title-slide-attributes:
+    data-background-image: qdraw-in-use.mp4
 subtitle: "Click the drawing (top-left) icon to start experimenting"
 format:
   revealjs:
@@ -13,6 +15,11 @@ format:
 revealjs-plugins:
   - qdraw
 ---
+
+# Video Demo
+
+![](qdraw-in-use.mp4)
+
 
 # Installation
 
