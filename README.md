@@ -23,3 +23,5 @@ If you're using version control, you will want to check in this directory.
 ## Demo
 
 [Get a demo here](https://www.thinkermahmud.com/qdraw) and its source code [here](https://github.com/mahmudstat/qdraw/blob/main/example.qmd)
+
+This tool is practically used in my statistics and probability lecture slides on Stat Mania. [See them in action](https://docs.statmania.info/lectures.html)
