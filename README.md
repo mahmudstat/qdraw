@@ -1,5 +1,8 @@
 # Qdraw Extension For Quarto
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17087728.svg)](https://doi.org/10.5281/zenodo.17087728)
+
+
 Allows drawing and erasing in a revealjs presentation rendered via quarto.
 
 ## Demo
