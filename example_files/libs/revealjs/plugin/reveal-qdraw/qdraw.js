@@ -39,6 +39,14 @@ window.RevealQdraw = function () {
       `;
       document.body.appendChild(controlsWrapper);
 
+      // Sits on the opposite edge from the toolbar so it's reachable
+      // whichever side the toolbar currently sits on (helpful on wide screens).
+      const moveControls = document.createElement('button');
+      moveControls.id = 'moveControls';
+      moveControls.title = 'Move controls to the other side';
+      moveControls.innerHTML = '<i class="fas fa-right-left"></i>';
+      document.body.appendChild(moveControls);
+
       const eraserCursor = document.createElement('div');
       eraserCursor.id = 'eraserCursor';
       document.body.appendChild(eraserCursor);
@@ -211,6 +219,11 @@ window.RevealQdraw = function () {
           aboutPopover.classList.remove('show');
         }
       });
+
+      moveControls.onclick = () => {
+        controlsWrapper.classList.toggle('right');
+        moveControls.classList.toggle('left');
+      };
 
       downloadButton.addEventListener('click', function () {
         if (!canvas) return;
