@@ -38,13 +38,18 @@
   display: none; z-index: 1002;
 }
 
-#bgColorLabel, #penColorLabel, #penTool, #eraserTool, #resetBg, #undo, #clear, #downloadCanvas {
+#bgColorLabel, #penColorLabel, #penTool, #eraserTool, #resetBg, #undo, #clear, #downloadCanvas, #about {
   cursor: pointer;
   font-size: 1.4em;
   padding: 6px;
   border-radius: 6px;
   background-color: #ccccff;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+}
+
+#about {
+  display: inline-block;
+  text-decoration: none;
 }
 
 #penSize, #eraserSize { accent-color: green; }

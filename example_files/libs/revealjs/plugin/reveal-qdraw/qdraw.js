@@ -11,7 +11,7 @@ window.RevealQdraw = function () {
         </button>
         <div id="controls">
           <label style="font-weight: bold; color: #8f246b;" id="penTool" title="Pen Tool"><i class="fas fa-marker"></i></label>
-          <input type="color" id="penColor" value="#339966" style="display: none;" />
+          <input type="color" id="penColor" value="#000000" style="display: none;" />
           <label for="penColor" id="penColorLabel" title="Pen Color">
             <i class="fas fa-eye-dropper"></i>
           </label>
@@ -28,6 +28,9 @@ window.RevealQdraw = function () {
           <label style="font-weight: bold; color: green;" id="downloadCanvas" title="Download Drawing" class="icon-button">
             <i class="fas fa-download"></i>
           </label>
+          <a style="font-weight: bold; color: #3366cc;" id="about" href="https://www.thinkermahmud.com/qdraw" target="_blank" rel="noopener" title="Developed by Abdullah Al Mahmud — click to learn more">
+            <i class="fas fa-circle-info"></i>
+          </a>
         </div>
       `;
       document.body.appendChild(controlsWrapper);
