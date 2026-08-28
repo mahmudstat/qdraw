@@ -35,4 +35,4 @@ This regenerates `index.html` per the `output-file: index.html` setting in `exam
 
 ## Must do
 
-Whenever a new significant feature is added, it should be reflected in example.qmd News and the extension version be updated accordingly. 
+Whenever a new significant feature is added, it should be reflected in example.qmd News and the extension version be updated accordingly and so is Readme.md. In News, only show the last two versions, archiving the others in readme (# Older versions)

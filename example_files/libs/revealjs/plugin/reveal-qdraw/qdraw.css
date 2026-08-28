@@ -43,7 +43,7 @@
   display: none; z-index: 1002;
 }
 
-#bgColorLabel, #penColorLabel, #penTool, #eraserTool, #resetBg, #undo, #clear, #downloadCanvas, #about, #shapeTool, #pagesTool {
+#penColorLabel, #penTool, #eraserTool, #undo, #downloadCanvas, #about, #shapeTool, #bgTool, #pagesTool {
   cursor: pointer;
   font-size: 1.4em;
   padding: 6px;
@@ -52,7 +52,7 @@
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
 }
 
-#shapeOptions, #pageOptions {
+#shapeOptions, #pageOptions, #eraserOptions, #bgOptions {
   display: none;
   position: absolute;
   flex-direction: row;
@@ -64,7 +64,7 @@
   z-index: 1002;
 }
 
-#shapeOptions.show, #pageOptions.show {
+#shapeOptions.show, #pageOptions.show, #eraserOptions.show, #bgOptions.show {
   display: flex;
 }
 
@@ -101,6 +101,46 @@
   color: #fff;
 }
 
+.eraserOption {
+  cursor: pointer;
+  font-size: 1em;
+  padding: 5px;
+  border-radius: 6px;
+  background-color: #ccccff;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+}
+
+.eraserOption.active {
+  background-color: #8f246b;
+  color: #fff;
+}
+
+.bgOption {
+  cursor: pointer;
+  font-size: 1em;
+  padding: 5px;
+  border-radius: 6px;
+  background-color: #ccccff;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+}
+
+.shapeFillToggle {
+  cursor: pointer;
+  font-size: 1em;
+  padding: 5px;
+  border-radius: 6px;
+  background-color: #ccccff;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+  margin-left: 4px;
+  border-left: 1px solid rgba(0, 0, 0, 0.15);
+  padding-left: 9px;
+}
+
+.shapeFillToggle.active {
+  background-color: #8f246b;
+  color: #fff;
+}
+
 #pageLabel {
   font-size: 0.8em;
   font-weight: bold;
@@ -109,6 +149,7 @@
 }
 
 #moveControls {
+  display: none;
   position: fixed;
   top: 10px;
   right: 10px;
@@ -163,5 +204,14 @@
 
 #penColorLabel i {
   transition: color 0.3s;
+}
+
+/* penTool/shapeTool icons track the selected pen color (see #penColorLabel),
+   which can wash out against the toolbar's light background - a dark
+   outline keeps them legible at any color. */
+.colorSynced i {
+  transition: color 0.3s;
+  -webkit-text-stroke: 0.2px rgba(0, 0, 0, 0.6);
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.6);
 }
 

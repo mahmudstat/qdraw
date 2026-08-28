@@ -40,3 +40,35 @@ This pulls the latest version of the extension from this repo and overwrites you
 - Read more here about [using the icons](https://www.thinkermahmud.com/qdraw/index.html#/icons)
 
 ![Icons](icons.png)
+
+## Current Version
+
+v1.5.2 - see the [News slide](https://www.thinkermahmud.com/qdraw/index.html#/news) in the demo, which always shows the two most recent versions.
+
+## Older versions
+
+### Version 1.5.0
+
+- Added a solid-fill toggle to the shape tool for filled rectangles, triangles, ellipses, and circles
+- Merged the background color and reset-background buttons into one background tool with a popover
+- The move-controls button is now only shown while the drawing tools are toggled on
+
+### Version 1.4.0
+
+- Merged the eraser and delete-all buttons into one eraser tool with a popover: freehand eraser, select-area erase, and delete all
+- Changed the pen color icon to a palette, since it now sets both pen and shape color
+
+### Version 1.3.0
+
+- Added a shape tool with line, rectangle, triangle, ellipse, and circle options
+
+### Version 1.2.0
+
+- Added a button to move the toolbar between the left and right edges of the screen
+- Added support for multiple drawing pages, with buttons to add a page and move between pages
+
+### Version 1.1.0
+
+- Fixed drawing on mobile landing away from where the pen touches the screen
+- Added an about icon (bottom of the toolbar) linking to the qdraw site
+- Default pen color changed to black
