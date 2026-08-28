@@ -43,13 +43,19 @@
   display: none; z-index: 1002;
 }
 
-#bgColorLabel, #penColorLabel, #penTool, #eraserTool, #resetBg, #undo, #clear, #downloadCanvas, #about {
+#bgColorLabel, #penColorLabel, #penTool, #eraserTool, #resetBg, #undo, #clear, #downloadCanvas, #about, #prevPage, #nextPage, #addPage {
   cursor: pointer;
   font-size: 1.4em;
   padding: 6px;
   border-radius: 6px;
   background-color: #ccccff;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+}
+
+#pageLabel {
+  font-size: 0.85em;
+  font-weight: bold;
+  color: #333;
 }
 
 #moveControls {

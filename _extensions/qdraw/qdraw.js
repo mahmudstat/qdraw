@@ -25,6 +25,10 @@ window.RevealQdraw = function () {
           </label>
           <input type="color" id="bgColor" style="display: none;" />
           <label style="font-weight: bold; color: red;" id="resetBg" title="Reset background color"><i class="fas fa-fill-drip"></i></label>
+          <label style="font-weight: bold; color: #408000;" id="prevPage" title="Previous page"><i class="fas fa-chevron-left"></i></label>
+          <span id="pageLabel" title="Current page">1/1</span>
+          <label style="font-weight: bold; color: #408000;" id="nextPage" title="Next page"><i class="fas fa-chevron-right"></i></label>
+          <label style="font-weight: bold; color: #8f246b;" id="addPage" title="Add new page"><i class="fas fa-plus"></i></label>
           <label style="font-weight: bold; color: green;" id="downloadCanvas" title="Download Drawing" class="icon-button">
             <i class="fas fa-download"></i>
           </label>
@@ -67,6 +71,10 @@ window.RevealQdraw = function () {
       const undo = document.getElementById('undo');
       const eraserTool = document.getElementById('eraserTool');
       const clearBtn = document.getElementById('clear');
+      const prevPageBtn = document.getElementById('prevPage');
+      const nextPageBtn = document.getElementById('nextPage');
+      const addPageBtn = document.getElementById('addPage');
+      const pageLabel = document.getElementById('pageLabel');
       const toggleControls = document.getElementById('toggleControls');
       const controls = document.getElementById('controls');
       const downloadButton = document.getElementById('downloadCanvas');
@@ -80,8 +88,39 @@ window.RevealQdraw = function () {
       let drawing = false, erasing = false;
       let controlsEnabled = false;
       let lastX = 0, lastY = 0;
-      const history = [];
       const defaultBgColor = "";
+
+      // Each page keeps its own saved snapshot (as a data URL, restored via drawImage
+      // so it survives canvas resizes) and its own undo stack. `history` always points
+      // at the current page's stack.
+      let currentPage = 0;
+      const pages = [null];
+      const pageHistories = [[]];
+      let history = pageHistories[currentPage];
+
+      function updatePageLabel() {
+        pageLabel.textContent = (currentPage + 1) + '/' + pages.length;
+      }
+
+      function loadPage(index) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        const src = pages[index];
+        if (src) {
+          const img = new Image();
+          img.onload = () => ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+          img.src = src;
+        }
+      }
+
+      function goToPage(index) {
+        if (index < 0 || index >= pages.length || index === currentPage) return;
+        pages[currentPage] = canvas.toDataURL();
+        pageHistories[currentPage] = history;
+        currentPage = index;
+        history = pageHistories[currentPage];
+        loadPage(currentPage);
+        updatePageLabel();
+      }
 
       // --- Functions ---
       function resize() {
@@ -194,6 +233,25 @@ window.RevealQdraw = function () {
       resetBgBtn.addEventListener('click', () => {
         canvas.style.backgroundColor = defaultBgColor;
         bgColorPicker.value = "#ffffff";
+      });
+
+      prevPageBtn.addEventListener('click', () => {
+        goToPage(currentPage - 1);
+      });
+
+      nextPageBtn.addEventListener('click', () => {
+        goToPage(currentPage + 1);
+      });
+
+      addPageBtn.addEventListener('click', () => {
+        pages[currentPage] = canvas.toDataURL();
+        pageHistories[currentPage] = history;
+        pages.push(null);
+        pageHistories.push([]);
+        currentPage = pages.length - 1;
+        history = pageHistories[currentPage];
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        updatePageLabel();
       });
 
       toggleControls.onclick = () => {

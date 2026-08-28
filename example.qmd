@@ -39,6 +39,14 @@ revealjs-plugins:
 ---
 ```
 
+## Updating
+
+```bash
+quarto update mahmudstat/qdraw
+```
+
+This pulls the latest version of the extension and overwrites your local `_extensions/qdraw` folder. See the [News](#/news) slide for what's changed in each version.
+
 # Using
 
 - Add your contents to `qmd` file and render.
@@ -68,6 +76,11 @@ revealjs-plugins:
 ::::
 
 # News
+
+## Version 1.2.0
+
+- Added a button to move the toolbar between the left and right edges of the screen
+- Added support for multiple drawing pages, with buttons to add a page and move between pages
 
 ## Version 1.1.0
 
