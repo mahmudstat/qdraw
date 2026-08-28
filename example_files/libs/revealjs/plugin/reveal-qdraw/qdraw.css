@@ -43,7 +43,7 @@
   display: none; z-index: 1002;
 }
 
-#bgColorLabel, #penColorLabel, #penTool, #eraserTool, #resetBg, #undo, #clear, #downloadCanvas, #about, #prevPage, #nextPage, #addPage {
+#bgColorLabel, #penColorLabel, #penTool, #eraserTool, #resetBg, #undo, #clear, #downloadCanvas, #about, #shapeTool, #pagesTool {
   cursor: pointer;
   font-size: 1.4em;
   padding: 6px;
@@ -52,10 +52,60 @@
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
 }
 
+#shapeOptions, #pageOptions {
+  display: none;
+  position: absolute;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+  background: #b3b3ff;
+  padding: 5px;
+  border-radius: 10px;
+  z-index: 1002;
+}
+
+#shapeOptions.show, #pageOptions.show {
+  display: flex;
+}
+
+#prevPage, #nextPage, #addPage {
+  cursor: pointer;
+  font-size: 1em;
+  padding: 5px;
+  border-radius: 6px;
+  background-color: #ccccff;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+}
+
+.shapeOption {
+  cursor: pointer;
+  font-size: 1em;
+  padding: 5px;
+  border-radius: 6px;
+  background-color: #ccccff;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+}
+
+.shapeOption[data-shape="triangle"] i {
+  transform: rotate(-90deg);
+  display: inline-block;
+}
+
+#ellipseIcon {
+  transform: scaleX(1.6);
+  display: inline-block;
+}
+
+.shapeOption.active {
+  background-color: #8f246b;
+  color: #fff;
+}
+
 #pageLabel {
-  font-size: 0.85em;
+  font-size: 0.8em;
   font-weight: bold;
   color: #333;
+  white-space: nowrap;
 }
 
 #moveControls {

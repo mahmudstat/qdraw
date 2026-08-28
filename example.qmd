@@ -77,6 +77,10 @@ This pulls the latest version of the extension and overwrites your local `_exten
 
 # News
 
+## Version 1.3.0
+
+- Added a shape tool with line, rectangle, triangle, ellipse, and circle options
+
 ## Version 1.2.0
 
 - Added a button to move the toolbar between the left and right edges of the screen

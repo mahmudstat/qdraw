@@ -32,3 +32,7 @@ quarto render example.qmd
 ```
 
 This regenerates `index.html` per the `output-file: index.html` setting in `example.qmd`'s frontmatter. Open the rendered file in a browser and manually exercise the toolbar (pen, eraser, undo, background color, download) to confirm behavior, since there is no headless/unit test coverage of the canvas interactions.
+
+## Must do
+
+Whenever a new significant feature is added, it should be reflected in example.qmd News and the extension version be updated accordingly. 

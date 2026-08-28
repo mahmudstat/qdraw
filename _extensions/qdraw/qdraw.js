@@ -19,16 +19,14 @@ window.RevealQdraw = function () {
           <label style="font-weight: bold; color: #408000;" id="undo" title="Undo drawing"><i class="fas fa-undo"></i></label>
           <label style="font-weight: bold; color: red;" id="eraserTool" title="Eraser Tool"><i class="fas fa-eraser"></i></label>
           <input type="range" id="eraserSize" min="20" max="250" value="60" />
+          <label style="font-weight: bold; color: #8f246b;" id="shapeTool" title="Shape Tool"><i class="fas fa-shapes"></i></label>
           <label style="font-weight: bold; color: red;" id="clear" type="button" title="Delete All drawing"><i class="fas fa-trash"></i></label>
           <label style="font-weight: bold; color: green;" for="bgColor" id="bgColorLabel" title="Canvas Background">
             <i class="fas fa-fill-drip"></i>
           </label>
           <input type="color" id="bgColor" style="display: none;" />
           <label style="font-weight: bold; color: red;" id="resetBg" title="Reset background color"><i class="fas fa-fill-drip"></i></label>
-          <label style="font-weight: bold; color: #408000;" id="prevPage" title="Previous page"><i class="fas fa-chevron-left"></i></label>
-          <span id="pageLabel" title="Current page">1/1</span>
-          <label style="font-weight: bold; color: #408000;" id="nextPage" title="Next page"><i class="fas fa-chevron-right"></i></label>
-          <label style="font-weight: bold; color: #8f246b;" id="addPage" title="Add new page"><i class="fas fa-plus"></i></label>
+          <label style="font-weight: bold; color: #408000;" id="pagesTool" title="Pages"><i class="fas fa-clone"></i></label>
           <label style="font-weight: bold; color: green;" id="downloadCanvas" title="Download Drawing" class="icon-button">
             <i class="fas fa-download"></i>
           </label>
@@ -39,6 +37,19 @@ window.RevealQdraw = function () {
         <div id="aboutPopover">
           Developed by Abdullah Al Mahmud<br>
           <a href="https://www.thinkermahmud.com/qdraw" target="_blank" rel="noopener">Learn more</a>
+        </div>
+        <div id="shapeOptions">
+          <label class="shapeOption active" data-shape="line" title="Line"><i class="fas fa-minus"></i></label>
+          <label class="shapeOption" data-shape="rect" title="Rectangle"><i class="fas fa-square"></i></label>
+          <label class="shapeOption" data-shape="triangle" title="Triangle"><i class="fas fa-play"></i></label>
+          <label class="shapeOption" data-shape="ellipse" title="Ellipse (drag corner to corner)"><i class="fas fa-circle" id="ellipseIcon"></i></label>
+          <label class="shapeOption" data-shape="circle" title="Circle (drag from center)"><i class="fas fa-circle"></i></label>
+        </div>
+        <div id="pageOptions">
+          <label id="prevPage" title="Previous page"><i class="fas fa-chevron-left"></i></label>
+          <span id="pageLabel" title="Current page">1/1</span>
+          <label id="nextPage" title="Next page"><i class="fas fa-chevron-right"></i></label>
+          <label id="addPage" title="Add new page"><i class="fas fa-plus"></i></label>
         </div>
       `;
       document.body.appendChild(controlsWrapper);
@@ -70,7 +81,12 @@ window.RevealQdraw = function () {
       const penTool = document.getElementById('penTool');
       const undo = document.getElementById('undo');
       const eraserTool = document.getElementById('eraserTool');
+      const shapeTool = document.getElementById('shapeTool');
+      const shapeOptions = document.getElementById('shapeOptions');
+      const shapeOptionEls = Array.from(document.querySelectorAll('.shapeOption'));
       const clearBtn = document.getElementById('clear');
+      const pagesTool = document.getElementById('pagesTool');
+      const pageOptions = document.getElementById('pageOptions');
       const prevPageBtn = document.getElementById('prevPage');
       const nextPageBtn = document.getElementById('nextPage');
       const addPageBtn = document.getElementById('addPage');
@@ -85,7 +101,10 @@ window.RevealQdraw = function () {
       penIcon.style.color = penColorInput.value;
 
       // Variables for drawing state
-      let drawing = false, erasing = false;
+      let drawing = false;
+      let mode = 'pen'; // 'pen' | 'eraser' | 'shape'
+      let shapeType = 'line'; // 'line' | 'rect' | 'triangle' | 'circle'
+      let shapeBase = null;
       let controlsEnabled = false;
       let lastX = 0, lastY = 0;
       const defaultBgColor = "";
@@ -158,7 +177,13 @@ window.RevealQdraw = function () {
         const p = pos(e);
         lastX = p.x;
         lastY = p.y;
-        draw(e);
+        if (mode === 'shape') {
+          // Reuse the undo snapshot as the base to redraw the live preview on
+          // top of while dragging, without committing intermediate frames.
+          shapeBase = history[history.length - 1];
+        } else {
+          draw(e);
+        }
       }
 
       function end() {
@@ -166,9 +191,49 @@ window.RevealQdraw = function () {
         ctx.globalCompositeOperation = 'source-over';
       }
 
+      function drawShape(x0, y0, x1, y1) {
+        ctx.lineWidth = Number(penSize.value);
+        ctx.lineCap = 'round';
+        ctx.globalCompositeOperation = 'source-over';
+        ctx.strokeStyle = penColorInput.value;
+        ctx.beginPath();
+        if (shapeType === 'line') {
+          ctx.moveTo(x0, y0);
+          ctx.lineTo(x1, y1);
+        } else if (shapeType === 'rect') {
+          ctx.rect(x0, y0, x1 - x0, y1 - y0);
+        } else if (shapeType === 'ellipse') {
+          const rx = Math.abs(x1 - x0) / 2;
+          const ry = Math.abs(y1 - y0) / 2;
+          ctx.ellipse((x0 + x1) / 2, (y0 + y1) / 2, rx, ry, 0, 0, Math.PI * 2);
+        } else if (shapeType === 'circle') {
+          // Drag from center outward, unlike the other shapes' corner-to-corner
+          // drag, so the radius stays equal in both directions - a true circle.
+          const r = Math.hypot(x1 - x0, y1 - y0);
+          ctx.arc(x0, y0, r, 0, Math.PI * 2);
+        } else if (shapeType === 'triangle') {
+          const midX = (x0 + x1) / 2;
+          ctx.moveTo(midX, y0);
+          ctx.lineTo(x0, y1);
+          ctx.lineTo(x1, y1);
+          ctx.closePath();
+        }
+        ctx.stroke();
+      }
+
       function draw(e) {
         if (!drawing) return;
         const p = pos(e);
+
+        if (mode === 'shape') {
+          // Redraw from the pre-shape snapshot each move so the preview
+          // doesn't smear as the pointer moves.
+          ctx.putImageData(shapeBase, 0, 0);
+          drawShape(lastX, lastY, p.x, p.y);
+          return;
+        }
+
+        const erasing = mode === 'eraser';
         const size = erasing ? Number(eraserSize.value) : Number(penSize.value);
         ctx.lineWidth = size;
         ctx.lineCap = 'round';
@@ -204,16 +269,58 @@ window.RevealQdraw = function () {
       });
 
       penTool.onclick = () => {
-        erasing = false;
+        mode = 'pen';
         eraserCursor.style.display = 'none';
         canvas.style.pointerEvents = 'auto';
       };
 
       eraserTool.onclick = () => {
-        erasing = true;
+        mode = 'eraser';
         eraserCursor.style.display = 'block';
         canvas.style.pointerEvents = 'auto';
       };
+
+      function positionPopover(popoverEl, anchorEl) {
+        // Popovers live outside #controls (so they don't widen the toolbar
+        // column) and are positioned against their anchor icon's actual
+        // on-screen spot, since it isn't always the last item in the list.
+        const wrapperRect = controlsWrapper.getBoundingClientRect();
+        const anchorRect = anchorEl.getBoundingClientRect();
+        popoverEl.style.top = (anchorRect.top - wrapperRect.top) + 'px';
+        if (controlsWrapper.classList.contains('right')) {
+          popoverEl.style.left = 'auto';
+          popoverEl.style.right = '50px';
+        } else {
+          popoverEl.style.left = '50px';
+          popoverEl.style.right = 'auto';
+        }
+      }
+
+      shapeTool.onclick = () => {
+        mode = 'shape';
+        eraserCursor.style.display = 'none';
+        canvas.style.pointerEvents = 'auto';
+        pageOptions.classList.remove('show');
+        positionPopover(shapeOptions, shapeTool);
+        shapeOptions.classList.toggle('show');
+      };
+
+      pagesTool.onclick = () => {
+        shapeOptions.classList.remove('show');
+        positionPopover(pageOptions, pagesTool);
+        pageOptions.classList.toggle('show');
+      };
+
+      shapeOptionEls.forEach((el) => {
+        el.addEventListener('click', () => {
+          mode = 'shape';
+          shapeType = el.dataset.shape;
+          eraserCursor.style.display = 'none';
+          canvas.style.pointerEvents = 'auto';
+          shapeOptionEls.forEach((opt) => opt.classList.remove('active'));
+          el.classList.add('active');
+        });
+      });
 
       undo.onclick = () => {
         if (history.length) {
@@ -259,12 +366,14 @@ window.RevealQdraw = function () {
         controls.style.display = isVisible ? 'none' : 'flex';
         controlsEnabled = !isVisible;
         canvas.style.pointerEvents = controlsEnabled ? 'auto' : 'none';
-        if (erasing && controlsEnabled) {
+        if (mode === 'eraser' && controlsEnabled) {
           eraserCursor.style.display = 'block';
         } else {
           eraserCursor.style.display = 'none';
         }
         aboutPopover.classList.remove('show');
+        shapeOptions.classList.remove('show');
+        pageOptions.classList.remove('show');
       };
 
       about.onclick = (e) => {
@@ -276,11 +385,20 @@ window.RevealQdraw = function () {
         if (aboutPopover.classList.contains('show') && !aboutPopover.contains(e.target) && e.target !== about) {
           aboutPopover.classList.remove('show');
         }
+        if (shapeOptions.classList.contains('show') && !shapeOptions.contains(e.target) && e.target !== shapeTool && !shapeTool.contains(e.target)) {
+          shapeOptions.classList.remove('show');
+        }
+        if (pageOptions.classList.contains('show') && !pageOptions.contains(e.target) && e.target !== pagesTool && !pagesTool.contains(e.target)) {
+          pageOptions.classList.remove('show');
+        }
       });
 
       moveControls.onclick = () => {
         controlsWrapper.classList.toggle('right');
         moveControls.classList.toggle('left');
+        aboutPopover.classList.remove('show');
+        shapeOptions.classList.remove('show');
+        pageOptions.classList.remove('show');
       };
 
       downloadButton.addEventListener('click', function () {
