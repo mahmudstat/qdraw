@@ -28,9 +28,13 @@ window.RevealQdraw = function () {
           <label style="font-weight: bold; color: green;" id="downloadCanvas" title="Download Drawing" class="icon-button">
             <i class="fas fa-download"></i>
           </label>
-          <a style="font-weight: bold; color: #3366cc;" id="about" href="https://www.thinkermahmud.com/qdraw" target="_blank" rel="noopener" title="Developed by Abdullah Al Mahmud — click to learn more">
+          <label style="font-weight: bold; color: #3366cc;" id="about" title="About this tool">
             <i class="fas fa-circle-info"></i>
-          </a>
+          </label>
+        </div>
+        <div id="aboutPopover">
+          Developed by Abdullah Al Mahmud<br>
+          <a href="https://www.thinkermahmud.com/qdraw" target="_blank" rel="noopener">Learn more</a>
         </div>
       `;
       document.body.appendChild(controlsWrapper);
@@ -58,6 +62,8 @@ window.RevealQdraw = function () {
       const toggleControls = document.getElementById('toggleControls');
       const controls = document.getElementById('controls');
       const downloadButton = document.getElementById('downloadCanvas');
+      const about = document.getElementById('about');
+      const aboutPopover = document.getElementById('aboutPopover');
 
       // Set initial color
       penIcon.style.color = penColorInput.value;
@@ -192,7 +198,19 @@ window.RevealQdraw = function () {
         } else {
           eraserCursor.style.display = 'none';
         }
+        aboutPopover.classList.remove('show');
       };
+
+      about.onclick = (e) => {
+        e.stopPropagation();
+        aboutPopover.classList.toggle('show');
+      };
+
+      document.addEventListener('click', (e) => {
+        if (aboutPopover.classList.contains('show') && !aboutPopover.contains(e.target) && e.target !== about) {
+          aboutPopover.classList.remove('show');
+        }
+      });
 
       downloadButton.addEventListener('click', function () {
         if (!canvas) return;
