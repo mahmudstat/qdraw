@@ -74,7 +74,16 @@ window.RevealQdraw = function () {
 
       function pos(e) {
         if (e.touches) e = e.touches[0];
-        return { x: e.clientX, y: e.clientY };
+        // Map viewport coordinates to canvas pixel coordinates via the canvas's
+        // actual rendered rect, rather than assuming clientX/Y == canvas pixels.
+        // On mobile, the canvas's CSS box (100vw/100vh) and its backing store
+        // (sized from window.innerWidth/innerHeight) can drift apart (e.g. when
+        // the browser's address bar shows/hides), which otherwise makes strokes
+        // land away from the pointer.
+        const rect = canvas.getBoundingClientRect();
+        const scaleX = canvas.width / rect.width;
+        const scaleY = canvas.height / rect.height;
+        return { x: (e.clientX - rect.left) * scaleX, y: (e.clientY - rect.top) * scaleY };
       }
 
       function updateEraser(x, y) {
