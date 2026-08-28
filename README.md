@@ -37,9 +37,7 @@ This pulls the latest version of the extension from this repo and overwrites you
 - Add your contents to `qmd` file and render.
 - Click on the draw icon <i class="fas fa-pen-nib"></i> to activate the drawing tools. Click the icon again to hide the tools.
 - Use the self-explanatory tools as per your requirements.
-- See the icon reference below, or the [Icons slides](https://www.thinkermahmud.com/qdraw/index.html#/icons) in the demo.
-
-![Icons](icons.png)
+- See the video linked above and the slide itself to experiment with.
 
 ### Toolbar
 

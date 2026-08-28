@@ -23,7 +23,7 @@ revealjs-plugins:
 
 # Video Demo
 
-![](qdraw-in-use.mp4)
+![](qdraw.mp4)
 
 
 # Installation
@@ -133,7 +133,5 @@ See the [Older versions](https://github.com/mahmudstat/qdraw#older-versions) sec
 ## Version 1.5.1
 
 - The pen and shape tool icons now match the selected pen color, with an outline so they stay legible at any color
-
-## Older Versions
 
 
