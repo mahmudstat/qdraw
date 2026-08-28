@@ -52,6 +52,8 @@ quarto update mahmudstat/qdraw
 
 This pulls the latest version of the extension and overwrites your local `_extensions/qdraw` folder. See the [News](#/news) slide for what's changed in each version.
 
+Then render the `qmd` afresh.
+
 # Using
 
 - Add your contents to `qmd` file and render.

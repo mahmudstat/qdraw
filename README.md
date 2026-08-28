@@ -32,6 +32,8 @@ quarto update mahmudstat/qdraw
 
 This pulls the latest version of the extension from this repo and overwrites your local `_extensions/qdraw` folder. See the [News slide](https://www.thinkermahmud.com/qdraw/index.html#/news) in the demo for what's changed in each version.
 
+Then render the `qmd` afresh.
+
 ## Using
 
 - Add your contents to `qmd` file and render.
