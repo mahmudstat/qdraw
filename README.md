@@ -9,7 +9,7 @@ Allows drawing and erasing in a revealjs presentation rendered via quarto.
 
 [Get a demo here](https://www.thinkermahmud.com/qdraw) and its source code [here](https://github.com/mahmudstat/qdraw/blob/main/example.qmd)
 
-This tool is practically used in my statistics and probability lecture slides on Stat Mania. [See them in action](https://docs.statmania.info/lectures.html)
+This tool is practically used in my statistics and probability lecture slides on Stat Mania. [See them in action](https://www.statmania.info/lectures.html)
 
 ## Video Demonstration
 
@@ -23,6 +23,14 @@ quarto add mahmudstat/qdraw
 
 This will install the extension under the `_extensions` subdirectory.
 If you're using version control, you will want to check in this directory.
+
+## Updating
+
+```bash
+quarto update mahmudstat/qdraw
+```
+
+This pulls the latest version of the extension from this repo and overwrites your local `_extensions/qdraw` folder. See the [News slide](https://www.thinkermahmud.com/qdraw/index.html#/news) in the demo for what's changed in each version.
 
 ## Using
 
