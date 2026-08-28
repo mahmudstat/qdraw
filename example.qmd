@@ -8,6 +8,11 @@ format:
     include-in-header:
       - text: |
           <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+          <style>
+          .icon-table table { font-size: 0.62em; }
+          .icon-table th, .icon-table td { padding: 0.15em 0.5em; }
+          .icon-table td:first-child, .icon-table th:first-child { text-align: center; width: 1.6em; }
+          </style>
     slide-number:  c/t
     navigation-mode: vertical
     output-file: index.html
@@ -54,24 +59,68 @@ This pulls the latest version of the extension and overwrites your local `_exten
 - Click the icon again to hide the tools and move on to the other slides.
 - Use the self-explanatory tools as per your requirements.
 
-## Icons
+## Icons — Toolbar (Drawing) {#icons .smaller}
 
-:::: {.columns}
-
-::: {.column width="50%"}
-- <i style="font-weight: bold; color: red;" class="fas fa-pen-nib"></i> Start/Stop Drawing
-- <i style="font-weight: bold;" class="fas fa-marker"></i> Choose to Draw (defaulted initially)
-- <i style="font-weight: bold;" class="fas fa-palette"></i> Change Pen &amp; Shape Color
-- <i style="font-weight: bold; color: green;" class="fas fa-undo"></i> Undo Drawings
+::: {.icon-table}
+| Icon | Tool | What it does |
+|:---:|---|---|
+| <i class="fas fa-pen-nib"></i> | Toggle Drawing | Show or hide the whole toolbar |
+| <i class="fas fa-marker"></i> | Pen | Switch to freehand pen drawing |
+| <i class="fas fa-palette"></i> | Pen &amp; Shape Color | Choose the color used by the pen and by shapes |
+| *(slider)* | Pen Size | Adjust pen stroke thickness |
+| <i class="fas fa-undo"></i> | Undo | Undo the last stroke, shape, or erase on the current page |
+| <i class="fas fa-eraser"></i> | Eraser | Open eraser options: freehand erase, select-area erase, delete all |
+| *(slider)* | Eraser Size | Adjust the eraser's diameter |
 :::
 
-::: {.column width="50%"}
-- <i style="font-weight: bold; color: red;" class="fas fa-eraser"></i> Erase Drawings (freehand erase, select-area erase, or delete all)
-- <i style="font-weight: bold; color: green;"  class="fas fa-fill-drip"></i> Background (choose color or reset)
-- <i style="font-weight: bold; color: green;" class="fas fa-download"></i> Download Drawings
+## Icons — Toolbar (Canvas & Navigation) {.smaller}
+
+::: {.icon-table}
+| Icon | Tool | What it does |
+|:---:|---|---|
+| <i class="fas fa-shapes"></i> | Shapes | Open shape options: line, rectangle, triangle, ellipse, circle, solid fill |
+| <i class="fas fa-fill-drip"></i> | Background | Open background options: choose color, reset |
+| <i class="fas fa-clone"></i> | Pages | Open page navigation: previous, next, add page |
+| <i class="fas fa-download"></i> | Download | Save the current page as a PNG |
+| <i class="fas fa-circle-info"></i> | About | Show a popover linking to the qdraw site |
+| <i class="fas fa-right-left"></i> | Move Controls | Move the toolbar to the opposite screen edge (only shown while drawing tools are active) |
 :::
 
-::::
+## Icons — Eraser Options {.smaller}
+
+::: {.icon-table}
+| Icon | Option | What it does |
+|:---:|---|---|
+| <i class="fas fa-eraser"></i> | Eraser | Erase by dragging over strokes |
+| <i class="fas fa-vector-square"></i> | Select &amp; Erase | Drag a rectangle to erase everything inside it |
+| <i class="fas fa-trash"></i> | Delete All | Clear the entire current page |
+:::
+
+## Icons — Shape Options {.smaller}
+
+::: {.icon-table}
+| Icon | Option | What it does |
+|:---:|---|---|
+| <i class="fas fa-minus"></i> | Line | Draw a straight line |
+| <i class="fas fa-square"></i> | Rectangle | Drag corner to corner |
+| <i class="fas fa-play" style="transform: rotate(-90deg); display: inline-block;"></i> | Triangle | Drag corner to corner |
+| <i class="fas fa-circle" style="transform: scaleX(1.6); display: inline-block;"></i> | Ellipse | Drag corner to corner |
+| <i class="fas fa-circle"></i> | Circle | Drag from the center outward |
+| <i class="fas fa-fill"></i> | Solid Fill | Toggle filled vs. outline shapes |
+:::
+
+## Icons — Background &amp; Page Options {.smaller}
+
+::: {.icon-table}
+| Icon | Option | What it does |
+|:---:|---|---|
+| <i class="fas fa-fill-drip"></i> | Choose Color | Pick a background color for the canvas |
+| <i class="fas fa-rotate-left"></i> | Reset | Reset the background to default (transparent) |
+| <i class="fas fa-chevron-left"></i> | Previous Page | Go to the previous drawing page |
+| `1/2` | Page indicator | Shows current page / total pages |
+| <i class="fas fa-chevron-right"></i> | Next Page | Go to the next drawing page |
+| <i class="fas fa-plus"></i> | Add Page | Create a new blank page and switch to it |
+:::
 
 # News
 
@@ -85,46 +134,6 @@ See the [Older versions](https://github.com/mahmudstat/qdraw#older-versions) sec
 
 - The pen and shape tool icons now match the selected pen color, with an outline so they stay legible at any color
 
-# Demo
+## Older Versions
 
-[Get a demo here](https://www.thinkermahmud.com/qdraw) and its source code [here](https://github.com/mahmudstat/qdraw/blob/main/example.qmd)
 
-## Scatter Plot with Chart.js
-
-(Not part of `qdraw` plugin)
-
-<canvas id="myChart" style="width:100%;max-width:700px"></canvas>
-
-<script>
-var xyValues = [
-  {x:50, y:7},
-  {x:60, y:8},
-  {x:70, y:8},
-  {x:80, y:9},
-  {x:90, y:9},
-  {x:100, y:9},
-  {x:110, y:10},
-  {x:120, y:11},
-  {x:130, y:14},
-  {x:140, y:14},
-  {x:150, y:15}
-];
-
-new Chart(document.getElementById("myChart"), {
-  type: "scatter",
-  data: {
-    datasets: [{
-      pointRadius: 4,
-      pointBackgroundColor: "rgb(0,0,255)",
-      data: xyValues
-    }]
-  },
-  options: {
-    legend: {display: true},
-    scales: {
-      xAxes: [{ticks: {min: 40, max:160}}],
-      yAxes: [{ticks: {min: 6, max:16}}],
-    }
-  }
-});
-</script>

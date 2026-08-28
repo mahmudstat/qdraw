@@ -37,9 +37,57 @@ This pulls the latest version of the extension from this repo and overwrites you
 - Add your contents to `qmd` file and render.
 - Click on the draw icon <i class="fas fa-pen-nib"></i> to activate the drawing tools. Click the icon again to hide the tools.
 - Use the self-explanatory tools as per your requirements.
-- Read more here about [using the icons](https://www.thinkermahmud.com/qdraw/index.html#/icons)
+- See the icon reference below, or the [Icons slides](https://www.thinkermahmud.com/qdraw/index.html#/icons) in the demo.
 
 ![Icons](icons.png)
+
+### Toolbar
+
+| Icon | Tool | What it does |
+|---|---|---|
+| `fa-pen-nib` | Toggle Drawing | Show or hide the whole toolbar |
+| `fa-marker` | Pen | Switch to freehand pen drawing |
+| `fa-palette` | Pen & Shape Color | Choose the color used by the pen and by shapes |
+| *(slider)* | Pen Size | Adjust pen stroke thickness |
+| `fa-undo` | Undo | Undo the last stroke, shape, or erase on the current page |
+| `fa-eraser` | Eraser | Open eraser options: freehand erase, select-area erase, delete all |
+| *(slider)* | Eraser Size | Adjust the eraser's diameter |
+| `fa-shapes` | Shapes | Open shape options: line, rectangle, triangle, ellipse, circle, solid fill |
+| `fa-fill-drip` | Background | Open background options: choose color, reset |
+| `fa-clone` | Pages | Open page navigation: previous, next, add page |
+| `fa-download` | Download | Save the current page as a PNG |
+| `fa-circle-info` | About | Show a popover linking to the qdraw site |
+| `fa-right-left` | Move Controls | Move the toolbar to the opposite screen edge (only shown while drawing tools are active) |
+
+### Eraser options
+
+| Icon | Option | What it does |
+|---|---|---|
+| `fa-eraser` | Eraser | Erase by dragging over strokes |
+| `fa-vector-square` | Select & Erase | Drag a rectangle to erase everything inside it |
+| `fa-trash` | Delete All | Clear the entire current page |
+
+### Shape options
+
+| Icon | Option | What it does |
+|---|---|---|
+| `fa-minus` | Line | Draw a straight line |
+| `fa-square` | Rectangle | Drag corner to corner |
+| `fa-play` (rotated) | Triangle | Drag corner to corner |
+| `fa-circle` (scaled) | Ellipse | Drag corner to corner |
+| `fa-circle` | Circle | Drag from the center outward |
+| `fa-fill` | Solid Fill | Toggle filled vs. outline shapes |
+
+### Background & page options
+
+| Icon | Option | What it does |
+|---|---|---|
+| `fa-fill-drip` | Choose Color | Pick a background color for the canvas |
+| `fa-rotate-left` | Reset | Reset the background to default (transparent) |
+| `fa-chevron-left` | Previous Page | Go to the previous drawing page |
+| `1/2` | Page indicator | Shows current page / total pages |
+| `fa-chevron-right` | Next Page | Go to the next drawing page |
+| `fa-plus` | Add Page | Create a new blank page and switch to it |
 
 ## Current Version
 

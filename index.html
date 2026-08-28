@@ -192,6 +192,11 @@
     }
   </style>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+  <style>
+  .icon-table table { font-size: 0.62em; }
+  .icon-table th, .icon-table td { padding: 0.15em 0.5em; }
+  .icon-table td:first-child, .icon-table th:first-child { text-align: center; width: 1.6em; }
+  </style>
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -238,23 +243,250 @@
 <li>Use the self-explanatory tools as per your requirements.</li>
 </ul>
 </section>
-<section id="icons" class="slide level2">
-<h2>Icons</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<ul>
-<li><i style="font-weight: bold; color: red;" class="fas fa-pen-nib"></i> Start/Stop Drawing</li>
-<li><i style="font-weight: bold;" class="fas fa-marker"></i> Choose to Draw (defaulted initially)</li>
-<li><i style="font-weight: bold;" class="fas fa-palette"></i> Change Pen &amp; Shape Color</li>
-<li><i style="font-weight: bold; color: green;" class="fas fa-undo"></i> Undo Drawings</li>
-</ul>
-</div><div class="column" style="width:50%;">
-<ul>
-<li><i style="font-weight: bold; color: red;" class="fas fa-eraser"></i> Erase Drawings (freehand erase, select-area erase, or delete all)</li>
-<li><i style="font-weight: bold; color: green;" class="fas fa-fill-drip"></i> Background (choose color or reset)</li>
-<li><i style="font-weight: bold; color: green;" class="fas fa-download"></i> Download Drawings</li>
-</ul>
-</div></div>
+<section id="icons" class="slide level2 smaller">
+<h2>Icons — Toolbar (Drawing)</h2>
+<div class="icon-table">
+<table class="caption-top">
+<colgroup>
+<col style="width: 45%">
+<col style="width: 27%">
+<col style="width: 27%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Icon</th>
+<th>Tool</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><i class="fas fa-pen-nib"></i></td>
+<td>Toggle Drawing</td>
+<td>Show or hide the whole toolbar</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><i class="fas fa-marker"></i></td>
+<td>Pen</td>
+<td>Switch to freehand pen drawing</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><i class="fas fa-palette"></i></td>
+<td>Pen &amp; Shape Color</td>
+<td>Choose the color used by the pen and by shapes</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><em>(slider)</em></td>
+<td>Pen Size</td>
+<td>Adjust pen stroke thickness</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><i class="fas fa-undo"></i></td>
+<td>Undo</td>
+<td>Undo the last stroke, shape, or erase on the current page</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><i class="fas fa-eraser"></i></td>
+<td>Eraser</td>
+<td>Open eraser options: freehand erase, select-area erase, delete all</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><em>(slider)</em></td>
+<td>Eraser Size</td>
+<td>Adjust the eraser’s diameter</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="icons-toolbar-canvas-navigation" class="slide level2 smaller">
+<h2>Icons — Toolbar (Canvas &amp; Navigation)</h2>
+<div class="icon-table">
+<table class="caption-top">
+<colgroup>
+<col style="width: 45%">
+<col style="width: 27%">
+<col style="width: 27%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Icon</th>
+<th>Tool</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><i class="fas fa-shapes"></i></td>
+<td>Shapes</td>
+<td>Open shape options: line, rectangle, triangle, ellipse, circle, solid fill</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><i class="fas fa-fill-drip"></i></td>
+<td>Background</td>
+<td>Open background options: choose color, reset</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><i class="fas fa-clone"></i></td>
+<td>Pages</td>
+<td>Open page navigation: previous, next, add page</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><i class="fas fa-download"></i></td>
+<td>Download</td>
+<td>Save the current page as a PNG</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><i class="fas fa-circle-info"></i></td>
+<td>About</td>
+<td>Show a popover linking to the qdraw site</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><i class="fas fa-right-left"></i></td>
+<td>Move Controls</td>
+<td>Move the toolbar to the opposite screen edge (only shown while drawing tools are active)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="icons-eraser-options" class="slide level2 smaller">
+<h2>Icons — Eraser Options</h2>
+<div class="icon-table">
+<table class="caption-top">
+<colgroup>
+<col style="width: 45%">
+<col style="width: 27%">
+<col style="width: 27%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Icon</th>
+<th>Option</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><i class="fas fa-eraser"></i></td>
+<td>Eraser</td>
+<td>Erase by dragging over strokes</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><i class="fas fa-vector-square"></i></td>
+<td>Select &amp; Erase</td>
+<td>Drag a rectangle to erase everything inside it</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><i class="fas fa-trash"></i></td>
+<td>Delete All</td>
+<td>Clear the entire current page</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="icons-shape-options" class="slide level2 smaller">
+<h2>Icons — Shape Options</h2>
+<div class="icon-table">
+<table class="caption-top">
+<colgroup>
+<col style="width: 45%">
+<col style="width: 27%">
+<col style="width: 27%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Icon</th>
+<th>Option</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><i class="fas fa-minus"></i></td>
+<td>Line</td>
+<td>Draw a straight line</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><i class="fas fa-square"></i></td>
+<td>Rectangle</td>
+<td>Drag corner to corner</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><i class="fas fa-play" style="transform: rotate(-90deg); display: inline-block;"></i></td>
+<td>Triangle</td>
+<td>Drag corner to corner</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><i class="fas fa-circle" style="transform: scaleX(1.6); display: inline-block;"></i></td>
+<td>Ellipse</td>
+<td>Drag corner to corner</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><i class="fas fa-circle"></i></td>
+<td>Circle</td>
+<td>Drag from the center outward</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><i class="fas fa-fill"></i></td>
+<td>Solid Fill</td>
+<td>Toggle filled vs.&nbsp;outline shapes</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="icons-background-page-options" class="slide level2 smaller">
+<h2>Icons — Background &amp; Page Options</h2>
+<div class="icon-table">
+<table class="caption-top">
+<colgroup>
+<col style="width: 45%">
+<col style="width: 27%">
+<col style="width: 27%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Icon</th>
+<th>Option</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><i class="fas fa-fill-drip"></i></td>
+<td>Choose Color</td>
+<td>Pick a background color for the canvas</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><i class="fas fa-rotate-left"></i></td>
+<td>Reset</td>
+<td>Reset the background to default (transparent)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><i class="fas fa-chevron-left"></i></td>
+<td>Previous Page</td>
+<td>Go to the previous drawing page</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>1/2</code></td>
+<td>Page indicator</td>
+<td>Shows current page / total pages</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><i class="fas fa-chevron-right"></i></td>
+<td>Next Page</td>
+<td>Go to the next drawing page</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><i class="fas fa-plus"></i></td>
+<td>Add Page</td>
+<td>Create a new blank page and switch to it</td>
+</tr>
+</tbody>
+</table>
+</div>
 </section></section>
 <section>
 <section id="news" class="title-slide slide level1 center">
@@ -272,50 +504,9 @@
 <ul>
 <li>The pen and shape tool icons now match the selected pen color, with an outline so they stay legible at any color</li>
 </ul>
-</section></section>
-<section>
-<section id="demo" class="title-slide slide level1 center">
-<h1>Demo</h1>
-<p><a href="https://www.thinkermahmud.com/qdraw">Get a demo here</a> and its source code <a href="https://github.com/mahmudstat/qdraw/blob/main/example.qmd">here</a></p>
 </section>
-<section id="scatter-plot-with-chart.js" class="slide level2">
-<h2>Scatter Plot with Chart.js</h2>
-<p>(Not part of <code>qdraw</code> plugin)</p>
-<canvas id="myChart" style="width:100%;max-width:700px">
-</canvas>
-<script>
-var xyValues = [
-  {x:50, y:7},
-  {x:60, y:8},
-  {x:70, y:8},
-  {x:80, y:9},
-  {x:90, y:9},
-  {x:100, y:9},
-  {x:110, y:10},
-  {x:120, y:11},
-  {x:130, y:14},
-  {x:140, y:14},
-  {x:150, y:15}
-];
-
-new Chart(document.getElementById("myChart"), {
-  type: "scatter",
-  data: {
-    datasets: [{
-      pointRadius: 4,
-      pointBackgroundColor: "rgb(0,0,255)",
-      data: xyValues
-    }]
-  },
-  options: {
-    legend: {display: true},
-    scales: {
-      xAxes: [{ticks: {min: 40, max:160}}],
-      yAxes: [{ticks: {min: 6, max:16}}],
-    }
-  }
-});
-</script>
+<section id="older-versions" class="slide level2">
+<h2>Older Versions</h2>
 
 </section></section>
     </div>
