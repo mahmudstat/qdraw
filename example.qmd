@@ -67,6 +67,13 @@ revealjs-plugins:
 
 ::::
 
+# News
+
+## Version 1.1.0
+
+- Fixed drawing on mobile landing away from where the pen touches the screen
+- Added an about icon (bottom of the toolbar) linking to the qdraw site
+- Default pen color changed to black
 
 # Demo
 
