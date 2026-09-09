@@ -12,3 +12,4 @@ New features/bug fixing
 11. ~~Like 9, we may merge background chosing and undoing options.~~ (fixed)
 12. ~~Moving controls to right/left should be available when Toggle drawing tools is activated.~~ (fixed)
 13. ~~Pen and Shape tool icons are very thick. Make them lighter.~~ (fixed) 
+14. ~~I think we should remove "Developed by Abdullah Al Mahmud" from about icon. It should just show the existing link.~~ (fixed)

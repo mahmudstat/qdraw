@@ -30,7 +30,6 @@ window.RevealQdraw = function () {
           </label>
         </div>
         <div id="aboutPopover">
-          Developed by Abdullah Al Mahmud<br>
           <a href="https://www.thinkermahmud.com/qdraw" target="_blank" rel="noopener">Learn more</a>
         </div>
         <div id="eraserOptions">
