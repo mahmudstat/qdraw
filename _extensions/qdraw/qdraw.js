@@ -448,7 +448,6 @@ window.RevealQdraw = function () {
         } else {
           eraserCursor.style.display = 'none';
         }
-        moveControls.style.display = controlsEnabled ? 'block' : 'none';
         aboutPopover.classList.remove('show');
         shapeOptions.classList.remove('show');
         eraserOptions.classList.remove('show');
