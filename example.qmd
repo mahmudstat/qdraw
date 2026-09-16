@@ -128,12 +128,12 @@ Then render the `qmd` afresh.
 
 See the [Older versions](https://github.com/mahmudstat/qdraw#older-versions) section of the README for earlier changes.
 
+## Version 1.6.0
+
+- Added quick-erase: right-click-drag with a mouse, or a resting palm on touchscreens, now erases with whatever tool is currently selected, without changing your tool selection
+
 ## Version 1.5.3
 
 - The move-controls button (switch toolbar side) is now always visible, not just while the drawing tools are toggled on, so it can be activated from either side at any time
-
-## Version 1.5.2
-
-- Lightened the pen/shape tool icon outline (added in 1.5.1) - it was rendering too thick
 
 

@@ -43,9 +43,13 @@ Then render the `qmd` afresh.
 
 ## Current Version
 
-v1.5.3 - see the [News slide](https://www.thinkermahmud.com/qdraw/index.html#/news) in the demo, which always shows the two most recent versions.
+v1.6.0 - see the [News slide](https://www.thinkermahmud.com/qdraw/index.html#/news) in the demo, which always shows the two most recent versions.
 
 ## Older versions
+
+### Version 1.5.2
+
+- Lightened the pen/shape tool icon outline (added in 1.5.1) - it was rendering too thick
 
 ### Version 1.5.1
 
