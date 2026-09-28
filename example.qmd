@@ -67,12 +67,18 @@ Then render the `qmd` afresh.
 | Icon | Tool | What it does |
 |:---:|---|---|
 | <i class="fas fa-pen-nib"></i> | Toggle Drawing | Show or hide the whole toolbar |
-| <i class="fas fa-marker"></i> | Pen | Switch to freehand pen drawing |
-| <i class="fas fa-palette"></i> | Pen &amp; Shape Color | Choose the color used by the pen and by shapes |
-| *(slider)* | Pen Size | Adjust pen stroke thickness |
+| <i class="fas fa-marker"></i> | Pen | Switch to freehand pen drawing, and open pen options: 5 fixed stroke widths (thin to thick) and the color picker |
 | <i class="fas fa-undo"></i> | Undo | Undo the last stroke, shape, or erase on the current page |
-| <i class="fas fa-eraser"></i> | Eraser | Open eraser options: freehand erase, select-area erase, delete all |
-| *(slider)* | Eraser Size | Adjust the eraser's diameter |
+| <i class="fas fa-eraser"></i> | Eraser | Switch to freehand erase, and open eraser options: erase mode, select-area erase, delete all, and 5 fixed eraser sizes |
+:::
+
+## Icons — Pen Options {.smaller}
+
+::: {.icon-table}
+| Icon | Option | What it does |
+|:---:|---|---|
+| *(line)* | Pen &amp; Shape Size | 5 fixed stroke widths, thin to thick |
+| <i class="fas fa-palette"></i> | Pen &amp; Shape Color | Choose the color used by the pen and by shapes |
 :::
 
 ## Icons — Toolbar (Canvas & Navigation) {.smaller}
@@ -93,9 +99,10 @@ Then render the `qmd` afresh.
 ::: {.icon-table}
 | Icon | Option | What it does |
 |:---:|---|---|
-| <i class="fas fa-eraser"></i> | Eraser | Erase by dragging over strokes |
+| <i class="fas fa-eraser"></i> | Eraser | Erase by dragging over strokes (active by default when the eraser tool is clicked) |
 | <i class="fas fa-vector-square"></i> | Select &amp; Erase | Drag a rectangle to erase everything inside it |
 | <i class="fas fa-trash"></i> | Delete All | Clear the entire current page |
+| *(dot)* | Eraser Size | 5 fixed eraser diameters, thin to thick |
 :::
 
 ## Icons — Shape Options {.smaller}
@@ -128,12 +135,14 @@ Then render the `qmd` afresh.
 
 See the [Older versions](https://github.com/mahmudstat/qdraw#older-versions) section of the README for earlier changes.
 
+## Version 1.7.0
+
+- Replaced the pen-size and eraser-size sliders with 5 fixed sizes (thin to thick) to pick from: clicking the pen or eraser tool now opens its size options directly (pen sizes shown as stroke-width lines), and clicking the eraser tool activates freehand erase immediately instead of requiring an extra click
+- Smoothed out freehand pen and eraser strokes, which used to look faceted/jagged on fast pointer movements
+- Folded the pen &amp; shape color swatch into the pen tool's popover (alongside stroke size), and fixed both it and the background color swatch so their native color-picker dialogs always open next to the swatch, on whichever side the toolbar is currently moved to
+
 ## Version 1.6.0
 
 - Added quick-erase: right-click-drag with a mouse, or a resting palm on touchscreens, now erases with whatever tool is currently selected, without changing your tool selection
-
-## Version 1.5.3
-
-- The move-controls button (switch toolbar side) is now always visible, not just while the drawing tools are toggled on, so it can be activated from either side at any time
 
 

@@ -269,17 +269,7 @@
 <tr class="even">
 <td style="text-align: center;"><i class="fas fa-marker"></i></td>
 <td>Pen</td>
-<td>Switch to freehand pen drawing</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><i class="fas fa-palette"></i></td>
-<td>Pen &amp; Shape Color</td>
-<td>Choose the color used by the pen and by shapes</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><em>(slider)</em></td>
-<td>Pen Size</td>
-<td>Adjust pen stroke thickness</td>
+<td>Switch to freehand pen drawing, and open pen options: 5 fixed stroke widths (thin to thick) and the color picker</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;"><i class="fas fa-undo"></i></td>
@@ -289,12 +279,38 @@
 <tr class="even">
 <td style="text-align: center;"><i class="fas fa-eraser"></i></td>
 <td>Eraser</td>
-<td>Open eraser options: freehand erase, select-area erase, delete all</td>
+<td>Switch to freehand erase, and open eraser options: erase mode, select-area erase, delete all, and 5 fixed eraser sizes</td>
 </tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="icons-pen-options" class="slide level2 smaller">
+<h2>Icons — Pen Options</h2>
+<div class="icon-table">
+<table class="caption-top">
+<colgroup>
+<col style="width: 45%">
+<col style="width: 27%">
+<col style="width: 27%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Icon</th>
+<th>Option</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
 <tr class="odd">
-<td style="text-align: center;"><em>(slider)</em></td>
-<td>Eraser Size</td>
-<td>Adjust the eraser’s diameter</td>
+<td style="text-align: center;"><em>(line)</em></td>
+<td>Pen &amp; Shape Size</td>
+<td>5 fixed stroke widths, thin to thick</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><i class="fas fa-palette"></i></td>
+<td>Pen &amp; Shape Color</td>
+<td>Choose the color used by the pen and by shapes</td>
 </tr>
 </tbody>
 </table>
@@ -371,7 +387,7 @@
 <tr class="odd">
 <td style="text-align: center;"><i class="fas fa-eraser"></i></td>
 <td>Eraser</td>
-<td>Erase by dragging over strokes</td>
+<td>Erase by dragging over strokes (active by default when the eraser tool is clicked)</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;"><i class="fas fa-vector-square"></i></td>
@@ -382,6 +398,11 @@
 <td style="text-align: center;"><i class="fas fa-trash"></i></td>
 <td>Delete All</td>
 <td>Clear the entire current page</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><em>(dot)</em></td>
+<td>Eraser Size</td>
+<td>5 fixed eraser diameters, thin to thick</td>
 </tr>
 </tbody>
 </table>
@@ -494,16 +515,18 @@
 <h1>News</h1>
 <p>See the <a href="https://github.com/mahmudstat/qdraw#older-versions">Older versions</a> section of the README for earlier changes.</p>
 </section>
+<section id="version-1.7.0" class="slide level2">
+<h2>Version 1.7.0</h2>
+<ul>
+<li>Replaced the pen-size and eraser-size sliders with 5 fixed sizes (thin to thick) to pick from: clicking the pen or eraser tool now opens its size options directly (pen sizes shown as stroke-width lines), and clicking the eraser tool activates freehand erase immediately instead of requiring an extra click</li>
+<li>Smoothed out freehand pen and eraser strokes, which used to look faceted/jagged on fast pointer movements</li>
+<li>Folded the pen &amp; shape color swatch into the pen tool’s popover (alongside stroke size), and fixed both it and the background color swatch so their native color-picker dialogs always open next to the swatch, on whichever side the toolbar is currently moved to</li>
+</ul>
+</section>
 <section id="version-1.6.0" class="slide level2">
 <h2>Version 1.6.0</h2>
 <ul>
 <li>Added quick-erase: right-click-drag with a mouse, or a resting palm on touchscreens, now erases with whatever tool is currently selected, without changing your tool selection</li>
-</ul>
-</section>
-<section id="version-1.5.3" class="slide level2">
-<h2>Version 1.5.3</h2>
-<ul>
-<li>The move-controls button (switch toolbar side) is now always visible, not just while the drawing tools are toggled on, so it can be activated from either side at any time</li>
 </ul>
 
 </section></section>
