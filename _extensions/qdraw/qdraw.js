@@ -24,7 +24,6 @@ window.RevealQdraw = function () {
           </label>
         </div>
         <div id="aboutPopover">
-          Tip: right-click-drag, or a resting palm on touchscreens, quick-erases with any tool selected.<br />
           <a href="https://www.thinkermahmud.com/qdraw" target="_blank" rel="noopener">Learn more</a>
         </div>
         <div id="eraserOptions">
